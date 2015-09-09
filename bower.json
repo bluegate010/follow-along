@@ -1,0 +1,13 @@
+{
+  "name": "follow-along",
+  "description": "A follow-along project for AngularJS",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-mocks": "~1.2.x",
+    "bootstrap": "~3.1.1",
+    "angular-route": "~1.2.x"
+  }
+}

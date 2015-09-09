@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" ng-app="followmeApp">
+<head>
+	<meta charset="utf-8">
+	<title>My HTML File</title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/app.css">
+	<script src="../bower_components/angular/angular.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/directives.js"></script>
+	<script src="js/hammer/hammer.min.js"></script>
+	<script src="js/uuid.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+	<div ng-controller='DimensionController' class='no-select'>
+		<div id='controls'>
+			<table>
+				<tr>
+					<td></td>
+					<td><button ng-click='move("up")'>&#8593;</button></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><button ng-click='move("left")'>&#8592;</button></td>
+					<td></td>
+					<td><button ng-click='move("right")'>&#8594;</button></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button ng-click='move("down")'>&#8595;</button></td>
+					<td></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td><button ng-click='zoom("in")'>+</button></td>
+				</tr>
+				<tr>
+					<td><button ng-click='zoom("out")'>-</button></td>
+				</tr>
+			</table>
+		</div>
+		<div id='fields'>
+			<input ng-model='imageURLField' placeholder='Image URL' ng-blur='setImageURL(imageURLField)' />
+			<br>
+			<input disabled='disabled' value='{{shareURL}}' />
+		</div>
+		<div id='viewport' ng-style='pxify(getViewportSize())' fm-resizable>
+			<div id='item' ng-style='pxify(itemStyle)'>
+				<img width='100%' ng-src='{{imageURL}}' fm-get-dimensions>
+			</div>
+			<div id='viewport-overlay' fm-draggable></div>
+		</div>
+	</div>
+</body>
+</html>

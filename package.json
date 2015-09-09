@@ -1,0 +1,26 @@
+{
+  "name"         : "follow-along",
+  "version"      : "0.0.0",
+  "private"      : true,
+  "description"  : "Simple follow-along application.",
+  "main"         : "server.js",
+  "author"       : "JeffA",
+  "dependencies" : {
+    "express"    : "~3.4.4",
+    "mongoose"   : "~3.6.2",
+    "socket.io": "latest"
+    },
+  "devDependencies": {
+    "karma": "~0.10",
+    "protractor": "~0.20.1",
+    "http-server": "^0.6.1",
+    "bower": "^1.3.1",
+    "shelljs": "^0.2.6"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+
+    "prestart": "npm install",
+    "start": "nodemon server.js"
+  }
+}
